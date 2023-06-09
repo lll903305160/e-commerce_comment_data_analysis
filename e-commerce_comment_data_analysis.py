@@ -26,7 +26,7 @@ df2_view_rate
 
 # 按观点类别分组数据
 df3 = pd.pivot_table(data2,index=["shop","aspectCategory"],columns='aspectPolarity',values='评价内容',aggfunc='count',fill_value=0)
-df3["sum"]=df3[["中","正","负"]].apply(lambda x:x["中"]+x["正"]+x["负"],axis=1)
+df3["sum"]=df3[["中","正","负"]].sum(axis=1)
 df3.reset_index(inplace=True)
 df3
 
